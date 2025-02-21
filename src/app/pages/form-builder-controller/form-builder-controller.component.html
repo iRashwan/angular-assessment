@@ -1,0 +1,72 @@
+<div class="form-builder-controller">
+  <form *ngIf="dynamicForm" [formGroup]="dynamicForm">
+
+    <div>
+      <label>ID:</label>
+      <input formControlName="id" readonly />
+    </div>
+    <div>
+      <label>Type:</label>
+      <input formControlName="type" readonly />
+    </div>
+
+    <div>
+      <label>Name:</label>
+      <input formControlName="name" />
+
+      <!-- ✅ Real-time Validation (Appears While Typing) -->
+      <div class="error-message" *ngIf="getControl('name')?.invalid && (getControl('name')?.dirty || getControl('name')?.invalid)">
+
+        <span *ngIf="getControl('name')?.errors?.['required']">Name is required.</span>
+
+        <span *ngIf="getControl('name')?.errors?.['minlength']">
+          Minimum {{ getControl('name')?.errors?.['minlength'].requiredLength }} characters required.
+        </span>
+
+        <span *ngIf="getControl('name')?.errors?.['maxlength']">
+          Maximum {{ getControl('name')?.errors?.['maxlength'].requiredLength }} characters allowed.
+        </span>
+
+      </div>
+    </div>
+
+
+    <div>
+      <label>Border Color:</label>
+      <input formControlName="borderColor" />
+    </div>
+    <div>
+      <label>Border Size:</label>
+      <input formControlName="borderSize" />
+    </div>
+
+    <!-- ✅ Show Caption If Exists -->
+    <div *ngIf="getControl('caption')">
+      <label>Caption:</label>
+      <input formControlName="caption" />
+      <div class="error-message" *ngIf="getControl('caption')?.invalid && getControl('caption')?.touched">
+        <span *ngIf="getControl('caption')?.errors?.['required']">Caption is required.</span>
+      </div>
+    </div>
+
+    <!-- ✅ Show Placeholder If Exists -->
+    <div *ngIf="getControl('placeholder')">
+      <label>Placeholder:</label>
+      <input formControlName="placeholder" />
+      <div class="error-message" *ngIf="getControl('placeholder')?.invalid && getControl('placeholder')?.touched">
+        <span *ngIf="getControl('placeholder')?.errors?.['required']">Placeholder is required.</span>
+      </div>
+    </div>
+
+    <!-- ✅ Show Rows & Cols If Exists -->
+    <div *ngIf="getControl('rows')">
+      <label>Rows:</label>
+      <input formControlName="rows" type="number" />
+    </div>
+    <div *ngIf="getControl('cols')">
+      <label>Cols:</label>
+      <input formControlName="cols" type="number" />
+    </div>
+
+  </form>
+</div>

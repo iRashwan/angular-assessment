@@ -1,0 +1,9 @@
+<label [attr.for]="inputConfig.id">{{ inputConfig.name }}</label>
+
+<input
+type="text"
+[attr.name]="inputConfig.name"
+[attr.id]="inputConfig.id"
+[ngStyle]="{ 'border': inputConfig.border.size + ' solid ' + inputConfig.border.color }"
+[placeholder]="inputConfig.placeholder"
+/>

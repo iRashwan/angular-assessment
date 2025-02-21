@@ -1,0 +1,17 @@
+<div class="form-builder-container">
+  <div class="content">
+    <div class="form-section border">
+      <app-dynamic-form
+        [selectedElementAfterModify]="selectedElementAfterModify"
+        (elementSelected)="handleElementSelection($event)">
+      </app-dynamic-form>
+    </div>
+    <div class="form-controller border">
+      <app-form-builder-controller
+        *ngIf="selectedElement"
+        [selectedElement]="selectedElement"
+        (updatedElement)="handleElementUpdate($event)">
+      </app-form-builder-controller>
+    </div>
+  </div>
+</div>

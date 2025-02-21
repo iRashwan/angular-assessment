@@ -1,0 +1,66 @@
+/* You can add global styles to this file, and also import other style files */
+// Variables
+$primary-color: #3498db;
+$border-color: #ccc;
+$border-radius: 4px;
+$padding: 0.75rem;
+$font-size: 1rem;
+$transition: 0.3s ease;
+
+// Mixin for common form element styles
+@mixin form-element-style {
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  padding: $padding;
+  font-size: $font-size;
+  transition: border-color $transition, box-shadow $transition;
+  &:focus {
+    border-color: $primary-color;
+    box-shadow: 0 0 5px rgba($primary-color, 0.3);
+    outline: none;
+  }
+}
+
+// Input text style
+input[type="text"] {
+  @include form-element-style;
+  width: 100%;
+  box-sizing: border-box;
+  margin-block:10px ;
+}
+
+// Textarea style
+textarea {
+  @include form-element-style;
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+  min-height: 100px;
+  margin-block:10px ;
+}
+
+// Button style
+button {
+  background-color: $primary-color;
+  color: #fff;
+  border: none;
+  border-radius: $border-radius;
+  padding: $padding $padding * 1.5;
+  font-size: $font-size;
+  cursor: pointer;
+  margin-block:10px ;
+  transition: background-color $transition, box-shadow $transition;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+
+  &:active {
+    background-color: darken($primary-color, 15%);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba($primary-color, 0.5);
+  }
+}

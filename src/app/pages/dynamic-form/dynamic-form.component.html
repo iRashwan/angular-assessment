@@ -1,0 +1,18 @@
+<form>
+  <ng-container *ngFor="let element of formElements">
+    <ng-container [ngSwitch]="element.type">
+     <div class="inputtext-container" *ngSwitchCase="'textbox'" (click)="getElement(element)">
+      <app-form-inputtext  [inputConfig]="element">
+      </app-form-inputtext>
+     </div>
+    <div class="textarea-container" *ngSwitchCase="'textarea'" (click)="getElement(element)">
+      <app-form-textarea  [textareaConfig]="element">
+      </app-form-textarea>
+    </div>
+     <div class="button-container" *ngSwitchCase="'button'" (click)="getElement(element)">
+      <app-form-button  [buttonConfig]="element">
+      </app-form-button>
+     </div>
+    </ng-container>
+  </ng-container>
+</form>

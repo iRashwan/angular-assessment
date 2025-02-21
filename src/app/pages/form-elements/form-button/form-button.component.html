@@ -1,0 +1,9 @@
+<button
+type="button"
+[attr.name]="buttonConfig.name"
+[attr.id]="buttonConfig.id"
+[ngStyle]="{
+  'border': buttonConfig.border.size !== 'none' ? buttonConfig.border.size + ' solid ' + buttonConfig.border.color : 'none'
+}">
+{{ buttonConfig.caption }}
+</button>
