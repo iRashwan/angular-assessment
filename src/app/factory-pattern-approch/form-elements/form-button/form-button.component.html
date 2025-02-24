@@ -1,0 +1,10 @@
+<div><button
+  type="button"
+  [attr.name]="config.name"
+  [attr.id]="config.id"
+  [ngStyle]="{
+    'border': config.border.size !== 'none' ? config.border.size + ' solid ' + config.border.color : 'none'
+  }"
+  (click)="handleClick()">
+  {{ config.caption }}
+  </button></div>

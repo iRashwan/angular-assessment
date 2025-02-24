@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { FormBuilderComponent } from './pages/form-builder/form-builder.component';
+import { SampleFormComponent } from './factory-pattern-approch/sample-form/sample-form.component';
 
 export const routes: Routes = [
   {
@@ -7,5 +7,6 @@ export const routes: Routes = [
     redirectTo: 'form',
     pathMatch: 'full'
   },
-  { path: 'form', component: FormBuilderComponent }
+  {path: 'form' , component: SampleFormComponent},
+  {path: '**' , component: SampleFormComponent}
 ];

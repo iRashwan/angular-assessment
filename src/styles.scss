@@ -22,7 +22,7 @@ $transition: 0.3s ease;
 }
 
 // Input text style
-input[type="text"] {
+input {
   @include form-element-style;
   width: 100%;
   box-sizing: border-box;

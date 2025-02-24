@@ -1,0 +1,10 @@
+<label [attr.for]="config.id">{{ config.name }}</label>
+
+<input
+type="text"
+[attr.name]="config.name"
+[attr.id]="config.id"
+[ngStyle]="{ 'border': config.border.size + ' solid ' + config.border.color }"
+[placeholder]="config.placeholder"
+(click)="handleClick()"
+/>

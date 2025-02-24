@@ -1,0 +1,11 @@
+<label [attr.for]="config.id">{{ config.name }}</label>
+
+<textarea
+[attr.name]="config.name"
+[attr.id]="config.id"
+[attr.rows]="config.rows"
+[attr.cols]="config.cols"
+[ngStyle]="{ 'border': config.border.size + ' solid ' + config.border.color }"
+(click)="handleClick()"
+>
+</textarea>
