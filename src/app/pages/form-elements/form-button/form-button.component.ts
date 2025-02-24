@@ -1,5 +1,5 @@
 import { NgStyle } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ButtonConfig } from './button.interface';
 
 @Component({
@@ -10,6 +10,11 @@ import { ButtonConfig } from './button.interface';
   styleUrl: './form-button.component.scss'
 })
 export class FormButtonComponent {
-  @Input() buttonConfig!: ButtonConfig;
+  @Input() config!: ButtonConfig;
+  @Output() clicked = new EventEmitter<any>();
+
+  handleClick() {
+    this.clicked.emit(this.config);
+  }
 
 }

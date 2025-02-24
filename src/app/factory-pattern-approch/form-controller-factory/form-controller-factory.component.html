@@ -1,0 +1,28 @@
+<div *ngIf="form">
+    <h3>Edit Element Properties</h3>
+    <form [formGroup]="form">
+        <div *ngFor="let key of objectKeys">
+            <ng-container *ngIf="key !== 'border'; else borderFields">
+                <label>{{ key }}</label>
+                <input type="text" [formControlName]="key" />
+
+                <div *ngIf="key === 'name' && form.get(key)?.invalid">
+                    <small class="error" *ngIf="form.get(key)?.errors?.['minlength']">
+                        Name must be at least 5 characters.
+                    </small>
+                    <small class="error" *ngIf="form.get(key)?.errors?.['maxlength']">
+                        Name must be less than 10 characters.
+                    </small>
+                </div>
+            </ng-container>
+        </div>
+
+        <ng-template #borderFields>
+            <label>Border Color</label>
+            <input type="text" formControlName="borderColor" />
+
+            <label>Border Size</label>
+            <input type="text" formControlName="borderSize" />
+        </ng-template>
+    </form>
+</div>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TextareaConfig } from './textarea.interface';
 import { NgStyle } from '@angular/common';
 
@@ -10,6 +10,10 @@ import { NgStyle } from '@angular/common';
   styleUrl: './form-textarea.component.scss'
 })
 export class FormTextareaComponent {
-  @Input() textareaConfig!: TextareaConfig;
+  @Input() config!: TextareaConfig;
+  @Output() clicked = new EventEmitter<any>();
 
+  handleClick() {
+    this.clicked.emit(this.config);
+  }
 }

@@ -1,0 +1,13 @@
+<div class="form-builder-container">
+    <div class="content">
+        <div class="form-section border">
+            <app-dynamic-factory-form [formConfig]="formConfig"
+                (elementClicked)="handleElementClick($event)"></app-dynamic-factory-form>
+
+        </div>
+        <div class="form-controller border" >
+            <app-form-controller-factory *ngIf="clickedElement" [elementData]="clickedElement" (updatedElement)="handleElementUpdate($event)">
+            </app-form-controller-factory>
+        </div>
+    </div>
+</div>
