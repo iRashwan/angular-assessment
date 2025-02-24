@@ -1,8 +1,8 @@
 // form-component.factory.ts
 import { Type } from '@angular/core';
-import { FormButtonComponent } from '../../pages/form-elements/form-button/form-button.component';
-import { FormTextareaComponent } from '../../pages/form-elements/form-textarea/form-textarea.component';
-import { FormInputtextComponent } from '../../pages/form-elements/form-inputtext/form-inputtext.component';
+import { FormButtonComponent } from '../form-elements/form-button/form-button.component';
+import { FormInputtextComponent } from '../form-elements/form-inputtext/form-inputtext.component';
+import { FormTextareaComponent } from '../form-elements/form-textarea/form-textarea.component';
 
 
 export class FormComponentFactory {

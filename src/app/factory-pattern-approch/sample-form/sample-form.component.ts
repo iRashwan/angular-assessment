@@ -71,20 +71,16 @@ export class SampleFormComponent {
 
 
   handleElementClick(event: any) {
-    this.clickedElement = { ...event }; // Clone object to avoid direct mutation
+    this.clickedElement = { ...event }; 
   }
 
   handleElementUpdate(updatedValues: any) {
-    console.log("sample", updatedValues);
-  
-    // Update clicked element
-    Object.assign(this.clickedElement, updatedValues);
-  
-    // Update formConfig with a new reference to trigger change detection
+    // console.log("sample", updatedValues);
+      Object.assign(this.clickedElement, updatedValues);
     this.formConfig = this.formConfig.map(item =>
       item.id === updatedValues.id ? { ...updatedValues } : item
     );
   }
-  
+
 }
 
